@@ -26,7 +26,7 @@
       <div class="card-ppl" v-bind:class="{ stretcy: isStretch }">
         <div class="nomine">
           <section class="count">
-            <h5>MEMBER LAMA</h5>
+            <h5>PENYEWA LAMA</h5>
             <H2 class="cn-2">2.000</H2>
           </section>
           <section class="icon">
@@ -45,7 +45,7 @@
       <div class="card-ppl " v-bind:class="{ stretcy: isStretch }">
         <div class="nomine">
           <section class="count">
-            <h5>MEMBER BARU</h5>
+            <h5>PENYEWA BARU</h5>
             <H2 class="cn-3">500</H2>
           </section>
           <section class="icon">
@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="card-data" v-bind:class="{ puck: isPuck }">
-        <h4>MEMBERSHIP</h4>
+        <h4>TOTAL PENYEWA</h4>
         <section class="income">
           <h1>1.200</h1>
           <p class="red"><b>-10%</b> dari bulan lalu</p>
@@ -115,37 +115,6 @@
         </section>
         <div class="footer">
           <p class="red"><b>-10%</b> dari minggu lalu</p>
-        </div>
-      </div>
-      <div class="card-data" v-bind:class="{ puck: isPuck }">
-        <h4>METODE PEMBAYARAN</h4>
-        <section class="cart">
-          <pie-chart
-            height="100%"
-            width="100%"
-            :legend="legend"
-            :donut="true"
-            :data="payment"
-            :colors="payColor"
-          ></pie-chart>
-        </section>
-        <div class="footer-2">
-          <p class="grn"><b>+30%</b> dari minggu lalu</p>
-        </div>
-      </div>
-      <div class="card-data" v-bind:class="{ puck: isPuck }">
-        <h4>TRAFIK BERDASARKAN WARNA MOBIL</h4>
-        <section class="cart">
-          <pie-chart
-            height="100%"
-            width="100%"
-            legend="left"
-            :data="traffic"
-            :colors="payColor"
-          ></pie-chart>
-        </section>
-        <div class="footer-2">
-          <p class="grn"><b>+30%</b> dari minggu lalu</p>
         </div>
       </div>
     </section>
@@ -186,20 +155,7 @@ export default {
         NOV: 1000,
         DES: 800
       },
-      traffic: {
-        Merah: "10%",
-        Putih: "25%",
-        Hitam: "55%",
-        Lainnya: "10%"
-      },
-      payment: {
-        CASH: 800,
-        EMONEY: 800,
-        MEMBERSHIP: 600
-      },
-      payColor: ["#ff3300", "#f2f2f2", "#000000", "#F3C249"],
-      blue: ["#5FA2F3"],
-      legend: "left"
+      blue: ["#5FA2F3"]
     };
   }
 };

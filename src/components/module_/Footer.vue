@@ -1,6 +1,5 @@
 <template>
   <footer>
-    <!-- <img src="../../assets/img/logo.png" alt="footer" /> -->
     <h5>Copyright © 2020</h5>
   </footer>
 </template>

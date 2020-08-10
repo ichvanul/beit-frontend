@@ -14,33 +14,12 @@
             <i class="fas fa-bars berger"></i>
           </div>
         </div>
-        <div class="right">
-          <div class="reg">
-            <select name="kota" id="kota" class="city">
-              <option value="1">Bekasi</option>
-              <option value="2">DKI Jakarta</option>
-              <option value="3">Depok</option>
-              <option value="4">Bogor</option>
-              <option value="5">Tangerang</option>
-            </select>
-            <div class="orange"><i class="fas fa-plus"></i></div>
-          </div>
-          <div class="profile">
-            <div class="image">
-              <img src="../assets/img/pevita.jpg" alt="profile" />
-            </div>
-            <div class="info">
-              <p>Pevita Pearce</p>
-              <p class="position">Petugas Parkir</p>
-            </div>
-          </div>
-        </div>
       </nav>
       <Dashboard v-bind:isStretch="isStretch" v-bind:isPuck="isPuck" />
-      <Gaskir v-bind:stretced="stretced" v-bind:stretching="stretching" />
       <notFound />
       <inputForm v-bind:expanded="expanded" />
-      <listColor v-bind:expanding="expanding" />
+      <listData v-bind:expanding="expanding" @editPage="addModal" />
+      <modalEdit @close-modal="closeModal" />
       <Footer />
     </div>
   </div>
@@ -50,20 +29,20 @@
 import sideBar from "../components/base_/sidebar.vue";
 import Dashboard from "../components/base_/Dashboard";
 import Footer from "../components/module_/Footer";
-import Gaskir from "../components/base_/gaskir";
 import notFound from "../components/base_/notFound";
 import inputForm from "../components/base_/formInput";
-import listColor from "../components/base_/listColor";
+import listData from "../components/base_/listData";
+import modalEdit from "../components/base_/modalEdit";
 
 export default {
   name: "Home",
   components: {
     sideBar,
     Dashboard,
-    Gaskir,
     notFound,
     inputForm,
-    listColor,
+    listData,
+    modalEdit,
     Footer
   },
   data() {
@@ -88,6 +67,12 @@ export default {
       this.stretced = !this.stretced;
       this.expanded = !this.expanded;
       this.expanding = !this.expanding;
+    },
+    addModal() {
+      document.querySelector(".editPage").classList.add("edit-page-active");
+    },
+    closeModal() {
+      document.querySelector(".edit-page").classList.remove("edit-page-active");
     }
   }
 };

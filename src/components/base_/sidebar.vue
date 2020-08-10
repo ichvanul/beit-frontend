@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar slider">
     <nav>
-      <h1>Parkir Mobil</h1>
+      <h1>Sewa Kapal</h1>
     </nav>
     <section class="dashboard" @click="dashboard">
       <div class="list-menu" v-bind:class="{ loca: localis == 'board' }">
@@ -52,7 +52,6 @@
         Dashboard
       </div>
     </section>
-    <!-- <Report /> -->
     <section class="sub-menu-b" @click="setLoc">
       <div class="list-menu-b" v-bind:class="{ loca: localis == 'loc' }">
         <div class="for-icon"><i class="fas fa-file-invoice"></i></div>
@@ -64,28 +63,18 @@
     </section>
     <ul class="list-b hide-b">
       <li v-bind:class="{ active: isActive == 'regist' }" @click="regist">
-        <p>Input Data Kendaraan</p>
+        <p>Input Data Penyewa</p>
       </li>
-      <li v-bind:class="{ active: isActive == 'type' }" @click="type">
-        <p>Kendaraan Per Tipe</p>
-      </li>
-      <li v-bind:class="{ active: isActive == 'color' }" @click="color">
-        <p>Kendaraan Sesuai Warna</p>
-      </li>
-      <li v-bind:class="{ active: isActive == 'gaskir' }" @click="gaskir">
-        <p>Petugas Parkir</p>
+      <li v-bind:class="{ active: isActive == 'rent' }" @click="rent">
+        <p>Data Penyewa</p>
       </li>
       <li v-bind:class="{ active: isActive == 'tarif' }" @click="tarif">
-        <p>Tarif</p>
-      </li>
-      <li v-bind:class="{ active: isActive == 'aktivasi' }" @click="aktivasi">
-        <p>Aktivasi Member</p>
+        <p>Tarif Sewa</p>
       </li>
       <li v-bind:class="{ active: isActive == 'set' }" @click="set">
         <p>Pengaturan</p>
       </li>
     </ul>
-    <adminSystem />
     <section class="sub-menu-d">
       <div class="list-menu-d">
         <div class="for-icon"><i class="fas fa-user-circle"></i></div>
@@ -113,15 +102,8 @@
 </template>
 
 <script>
-// import Report from "../base_/report.vue";
-import adminSystem from "../base_/adminSystem.vue";
-
 export default {
-  name: "sideBar",
-  components: {
-    // Report,
-    adminSystem
-  },
+  name: "sidebar",
   data() {
     return {
       isActive: "",
@@ -141,34 +123,14 @@ export default {
       document.querySelector(".form-page").style.display = "flex";
       document.querySelector(".noFound").style.display = "none";
       document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
+      document.querySelector(".rent-page").style.display = "none";
     },
-    gaskir() {
-      this.isActive = "gaskir";
-      this.localis = "loc";
-      document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "flex";
-      document.querySelector(".noFound").style.display = "none";
-      document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
-    },
-    type() {
-      this.isActive = "type";
-      this.localis = "loc";
-      document.querySelector(".noFound").style.display = "flex";
-      document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
-      document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
-    },
-    color() {
+    rent() {
       this.isActive = "color";
       this.localis = "loc";
-      document.querySelector(".color-page").style.display = "flex";
+      document.querySelector(".rent-page").style.display = "flex";
       document.querySelector(".noFound").style.display = "none";
       document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
       document.querySelector(".form-page").style.display = "none";
     },
     tarif() {
@@ -176,27 +138,16 @@ export default {
       this.localis = "loc";
       document.querySelector(".noFound").style.display = "flex";
       document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
       document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
-    },
-    aktivasi() {
-      this.isActive = "aktivasi";
-      this.localis = "loc";
-      document.querySelector(".noFound").style.display = "flex";
-      document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
-      document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
+      document.querySelector(".rent-page").style.display = "none";
     },
     set() {
       this.isActive = "set";
       this.localis = "loc";
       document.querySelector(".noFound").style.display = "flex";
       document.querySelector(".container").style.display = "none";
-      document.querySelector(".gaskir-page").style.display = "none";
       document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
+      document.querySelector(".rent-page").style.display = "none";
     },
     setLoc() {
       document.querySelector(".list-b").classList.toggle("hide-b");
@@ -207,10 +158,9 @@ export default {
       this.localis = "board";
       this.isActive = "";
       document.querySelector(".container").style.display = "flex";
-      document.querySelector(".gaskir-page").style.display = "none";
       document.querySelector(".noFound").style.display = "none";
       document.querySelector(".form-page").style.display = "none";
-      document.querySelector(".color-page").style.display = "none";
+      document.querySelector(".rent-page").style.display = "none";
     }
   }
 };
